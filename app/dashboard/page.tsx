@@ -9,9 +9,11 @@ export default function Page() {
   };
   return (
     <div>
-      <>
-        {error ? Error() : <button onClick={handleGetError}>Get Error</button>}
-      </>
+      {error ? (
+        <>Error()</>
+      ) : (
+        <button onClick={handleGetError}>Get Error</button>
+      )}
     </div>
   );
 }

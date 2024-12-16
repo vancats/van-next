@@ -1,12 +1,16 @@
-export default function RootLayout({
+export default function Layout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
   modal: React.ReactNode;
 }>) {
   return (
     <html>
-      <body>{children}</body>
+      <body>
+        {children}
+        {modal}
+      </body>
     </html>
   );
 }
