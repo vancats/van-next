@@ -1,13 +1,15 @@
+import Image from "next/image";
 import { photos } from "../../data";
 
-export default function PhotoPage({
-  params: { id },
+export default async function PhotoPage({
+  params,
 }: {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }) {
+  const { id } = await params;
   const photo = photos.find((p) => p.id === id)!;
   return (
-    <img
+    <Image
       style={{
         width: "50%",
         display: "block",
@@ -15,6 +17,7 @@ export default function PhotoPage({
         marginRight: "auto",
       }}
       src={photo.src}
+      alt=""
     />
   );
 }
