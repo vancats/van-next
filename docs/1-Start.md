@@ -42,3 +42,24 @@
   - request: 读取 cookies 和处理URL
   - context: 获取当前链接的所有路由参数
 - 缓存处理以及路由常见问题 https://juejin.cn/book/7307859898316881957/section/7308914343129645065#heading-12
+
+## 中间件
+> 与 page 同级
+- 匹配路径
+  - 使用 config.matcher
+  - 在 middleware 中使用条件语句
+- 路由响应执行顺序
+  - headers（next.config.js）
+  - redirects（next.config.js）
+  - 中间件 (rewrites, redirects 等)
+  - beforeFiles (next.config.js中的rewrites)
+  - 基于文件系统的路由 (public/, _next/static/, pages/, app/ 等)
+  - afterFiles (next.config.js中的rewrites)
+  - 动态路由 (/blog/[slug])
+  - fallback中的 (next.config.js中的rewrites)
+- skipMiddlewareUrlNormalize
+- skipTrailingSlashRedirect
+- 多个中间件时
+  - 拆分并使用多个 await
+  - 高阶函数或者chain
+- 主要在中间件中不能使用 node.js 环境的库,比如 /api/posts/route.ts 中使用的 limiter
