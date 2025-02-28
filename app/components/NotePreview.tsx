@@ -1,3 +1,5 @@
+"use client";
+
 import { marked } from "marked";
 import sanitizeHtml from "sanitize-html";
 
@@ -15,14 +17,13 @@ const allowedAttributes = Object.assign(
   }
 );
 
-export default async function NotePreview({ children }: { children?: string }) {
-  const str = await marked(children || "");
+export default function NotePreview({ children }: { children?: string }) {
   return (
     <div className="note-preview">
       <div
         className="text-with-markdown"
         dangerouslySetInnerHTML={{
-          __html: sanitizeHtml(str, {
+          __html: sanitizeHtml(marked(children || ""), {
             allowedTags,
             allowedAttributes,
           }),

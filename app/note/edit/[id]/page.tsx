@@ -1,15 +1,15 @@
-import Note from "@/components/Note";
+import NoteEditor from "@/components/NoteEditor";
 import { getNote } from "@/lib/redis";
 import { sleep } from "@/lib/utils";
 
-export default async function Page({ params }: { params: { id: string } }) {
-  // 动态路由 获取笔记 id
+export default async function EditPage({ params }: { params: { id: string } }) {
   const noteId = params.id;
   const note = await getNote(noteId);
 
+  // 让效果更明显
   await sleep(300);
 
-  if (note == null) {
+  if (note === null) {
     return (
       <div className="note--empty-state">
         <span className="note-text--empty-state">
@@ -19,5 +19,11 @@ export default async function Page({ params }: { params: { id: string } }) {
     );
   }
 
-  return <Note noteId={noteId} note={note} />;
+  return (
+    <NoteEditor
+      noteId={noteId}
+      initialTitle={note.title}
+      initialBody={note.content}
+    />
+  );
 }
