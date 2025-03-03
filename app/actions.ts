@@ -29,7 +29,7 @@ export async function saveNote(prevState: any, formData: FormData) {
   }
 
   // 模拟请求时间
-  await sleep(2000);
+  await sleep(300);
 
   // 更新数据库
   if (noteId) {
