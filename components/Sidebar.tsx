@@ -1,11 +1,13 @@
 import React, { Suspense } from "react";
 import Link from "next/link";
-import SidebarSearchField from "@/components/SidebarSearchField";
-import SidebarNoteList from "@/components/SidebarNoteList";
-import EditButton from "@/components/EditButton";
-import NoteListSkeleton from "@/components/NoteListSkeleton";
+import SidebarSearchField from "./SidebarSearchField";
+import SidebarNoteList from "./SidebarNoteList";
+import EditButton from "./EditButton";
+import NoteListSkeleton from "./NoteListSkeleton";
+import { useTranslation } from "app/i18n";
 
-export default async function Sidebar() {
+export default async function Sidebar({ lng }: { lng: string }) {
+  const { t } = await useTranslation(lng, "basic");
   return (
     <>
       <section className="col sidebar">
@@ -24,7 +26,7 @@ export default async function Sidebar() {
         </Link>
         <section className="sidebar-menu" role="menubar">
           <SidebarSearchField />
-          <EditButton noteId={null}>New</EditButton>
+          <EditButton noteId={null}>{t("new")}</EditButton>
         </section>
         <nav>
           <Suspense fallback={<NoteListSkeleton />}>

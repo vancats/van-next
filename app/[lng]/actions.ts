@@ -1,10 +1,10 @@
 "use server";
 
 import { redirect } from "next/navigation";
-import { addNote, updateNote, delNote } from "@/lib/redis";
+import { addNote, updateNote, delNote } from "lib/redis";
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
-import { sleep } from "@/lib/utils";
+import { sleep } from "lib/utils";
 
 const schema = z.object({
   title: z.string(),

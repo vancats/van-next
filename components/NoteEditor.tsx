@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import NotePreview from "@/components/NotePreview";
+import NotePreview from "./NotePreview";
 import { useFormState } from "react-dom";
-import { deleteNote, saveNote } from "actions";
-import SaveButton from "@/components/SaveButton";
-import DeleteButton from "@/components/DeleteButton";
+import SaveButton from "./SaveButton";
+import DeleteButton from "./DeleteButton";
+import { deleteNote, saveNote } from "@/actions";
 
 const initialState = {
   message: null,

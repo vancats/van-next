@@ -1,5 +1,5 @@
 import dayjs from "dayjs";
-import SidebarNoteItemContent from "@/components/SidebarNoteItemContent";
+import SidebarNoteItemContent from "./SidebarNoteItemContent";
 
 export default function SidebarNoteItem({
   noteId,

@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import SidebarNoteItemContent from "@/components/SidebarNoteItemContent";
+import SidebarNoteItemContent from "./SidebarNoteItemContent";
 
 export default function SidebarNoteList({ notes }: { notes: any[] }) {
   const searchParams = useSearchParams();

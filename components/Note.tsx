@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
-import NotePreview from "@/components/NotePreview";
-import EditButton from "@/components/EditButton";
+import NotePreview from "./NotePreview";
+import EditButton from "./EditButton";
 export default function Note({ noteId, note }: { noteId: string; note: any }) {
   const { title, content, updateTime } = note;
 
